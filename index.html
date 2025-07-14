@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dos Ruedas Libres - Eventos de Moto</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="./css/styles.css" />
+  <link rel="shortcut icon" href="./assets/LOGO.jpg" type="image/x-icon">
+</head>
+
+<body class="bg-gray-50 text-gray-900">
+
+  <!-- Navbar -->
+  <nav class="bg-white shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-20 items-center">
+        <div class="flex items-center space-x-4">
+          <img src="./assets/LOGO.jpg" alt="logo" class="logo-moto" />
+          <div>
+            <h1 class="text-xl font-bold gradient-text">RPM Eventos</h1>
+            <p class="text-xs text-gray-600">"Eventos que rugen con libertad."</p>
+          </div>
+        </div>
+        <div class="hidden md:flex space-x-4">
+          <a href="#inicio" class="nav-link active">INICIO</a>
+          <a href="#eventos" class="nav-link">EVENTOS</a>
+          <a href="#alianzas" class="nav-link">ALIANZAS</a>
+          <a href="#contacto" class="nav-link">CONTACTO</a>
+          <a href="./login/login.html" class="btn-primary text-sm">LOGIN</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="inicio" class="bg-white py-16">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-10">
+        <h2 class="text-4xl font-bold gradient-text">🏍️ Rutas que Liberan el Alma</h2>
+        <p class="text-lg text-gray-600 mt-2">Descubre los mejores eventos de moto y ferias de las dos ruedas</p>
+        <button class="btn-secondary mt-4">Explorar Eventos</button>
+      </div>
+
+      <!-- Carrusel -->
+      <div class="overflow-hidden">
+        <div id="carousel-track" class="flex space-x-6 justify-center transition-transform duration-700">
+          <img src="./assets/moto-1.jpg" class="rounded-xl shadow-lg w-full max-w-md object-cover" />
+          <img src="./assets/moto-2.jpg" class="rounded-xl shadow-lg w-full max-w-md object-cover" />
+          <img src="./assets/moto-3.jpg" class="rounded-xl shadow-lg w-full max-w-md object-cover" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Intro -->
+  <section class="py-16 px-6 text-center bg-white">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl font-bold mb-4 gradient-text">Conectamos Moteros y Aventuras</h2>
+      <p class="text-lg text-gray-600 leading-relaxed">
+        Somos la plataforma líder para eventos de ruta en moto además somos organizadores de la ferias de las dos
+        ruedas.
+        Organizamos experiencias únicas en carreteras destapadas, conectando a apasionados motociclistas con aventuras
+        inolvidables.
+      </p>
+    </div>
+  </section>
+
+  <!-- Eventos -->
+  <section id="eventos" class="py-16 px-6 bg-gray-50">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-12 gradient-text">Próximos Eventos</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="container__events">
+        <!-- Las tarjetas se insertan dinámicamente con JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal de detalles -->
+  <div id="evento-modal" class="modal-overlay">
+    <div class="modal-content">
+      <button class="modal-close" onclick="cerrarModal()">×</button>
+      <img id="modal-img" src="" alt="Imagen evento" />
+      <div class="modal-body">
+        <h3 id="modal-title">Título del Evento</h3>
+        <p id="modal-desc">Descripción completa del evento.</p>
+        <p><strong>Horario:</strong> <span id="modal-horario"></span></p>
+        <p><strong>Ubicación:</strong> <span id="modal-ubicacion"></span></p>
+        <p><strong>Edad mínima:</strong> <span id="modal-edad"></span></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Alianzas -->
+  <section id="alianzas" class="py-16 px-6 bg-gray-50">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-12 gradient-text">Únete como Socio</h2>
+      <div class="bg-white rounded-lg shadow-lg p-8">
+        <h3 class="text-2xl font-bold mb-6 text-center">Formulario de Nuevas Alianzas</h3>
+        <form class="space-y-6">
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-sm font-medium mb-2">Nombre de la Empresa</label>
+              <input type="text" class="form-input" placeholder="Tu empresa">
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-2">Tipo de Negocio</label>
+              <select class="form-input">
+                <option>Concesionario</option>
+                <option>Repuestos y Accesorios</option>
+                <option>Taller Mecánico</option>
+                <option>Equipos de Protección</option>
+                <option>Turismo</option>
+                <option>Otro</option>
+              </select>
+            </div>
+          </div>
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-sm font-medium mb-2">Persona de Contacto</label>
+              <input type="text" class="form-input" placeholder="Nombre completo">
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-2">Correo Electrónico</label>
+              <input type="email" class="form-input" placeholder="contacto@empresa.com">
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-2">Propuesta de Alianza</label>
+            <textarea class="form-textarea" placeholder="Describe cómo podemos colaborar juntos..."></textarea>
+          </div>
+          <button type="submit" class="btn-primary w-full">Enviar Propuesta</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+<section id="contacto" class="py-16 px-6 bg-white">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-12 gradient-text">Contacto</h2>
+    <div class="grid md:grid-cols-2 gap-12">
+
+      <!-- CUADRO DE UBICACIÓN -->
+      <div class="bg-gray-100 rounded-lg p-8 flex flex-col justify-between">
+        <div class="text-center mb-4">
+          <div class="text-6xl mb-4">📍</div>
+          <h3 class="text-xl font-bold mb-2">Ubicación</h3>
+          <p class="text-gray-600">
+            Riwi Medellín<br>Carrera 48 #10-45, Antioquia, Colombia
+          </p>
+        </div>
+
+        <!-- IFRAME DE GOOGLE MAPS-->
+        <div class="relative w-full h-64 rounded-lg overflow-hidden">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.715545366152!2d-75.57146472594194!3d6.241959793765085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e44281ab1cf3adf%3A0x5f5e376f63e1e7f!2sRiwi%20-%20Escuela%20de%20Formaci%C3%B3n%20Digital!5e0!3m2!1ses!2sco!4v1720369835949!5m2!1ses!2sco"
+            class="absolute top-0 left-0 w-full h-full"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+      <!-- FORMULARIO FUNCIONAL -->
+      <form id="formContacto" class="space-y-6">
+        <div>
+          <label class="block text-sm font-medium mb-2">Nombre</label>
+          <input id="nombre" type="text" class="form-input" placeholder="Tu nombre">
+        </div>
+        <div>
+          <label class="block text-sm font-medium mb-2">Correo</label>
+          <input id="correo" type="email" class="form-input" placeholder="tu@email.com">
+        </div>
+        <div>
+          <label class="block text-sm font-medium mb-2">Mensaje</label>
+          <textarea id="mensaje" class="form-textarea" placeholder="Escríbenos tus dudas..."></textarea>
+        </div>
+        <button type="submit" class="btn-primary w-full">Enviar Mensaje</button>
+      </form>
+
+    </div>
+  </div>
+</section>
+
+  <!-- Footer -->
+  <footer class="footer-section py-16 px-6">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 text-center md:text-left">
+      <div>
+        <h3 class="text-xl font-bold mb-4 text-amarillo-detalle">Suscríbete</h3>
+        <p class="text-gray-300 mb-4">Recibe noticias sobre eventos y rutas exclusivas</p>
+        <form class="flex flex-col sm:flex-row items-center sm:items-start gap-4">
+          <input type="email" placeholder="tu@email.com"
+            class="footer-input w-full sm:w-auto flex-1 rounded-full px-4 py-3" />
+          <button class="btn-primary rounded-full px-6 py-3 text-sm">SUSCRIBIRSE</button>
+        </form>
+      </div>
+      <div>
+        <h3 class="text-xl font-bold mb-4 text-amarillo-detalle">Dos Ruedas Libres</h3>
+        <p class="text-gray-300 text-sm leading-relaxed">
+          Conectamos moteros con aventuras únicas. Organizamos eventos de ruta en moto
+          y ferias de las dos ruedas por toda Colombia.
+        </p>
+      </div>
+      <div>
+        <h3 class="text-xl font-bold mb-4 text-amarillo-detalle">CONTACTANOS</h3>
+        <p class="text-gray-300 text-sm flex items-center gap-2">
+          📧 <span>info@dosruedaslibres.com</span>
+        </p>
+        <p class="text-gray-300 text-sm flex items-center gap-2 mt-1">
+          📱 <span>+57 3246378134</span>
+        </p>
+        <p class="text-gray-300 text-sm mt-6">&copy; 2025 RPM EVENTS ©</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./js/main.js"></script>
+  <script src="./js/eventDetails.js"></script>
+  <script src="./js/card.js"></script>
+</body>
+
+</html>
